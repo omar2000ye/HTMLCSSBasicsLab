@@ -1,61 +1,28 @@
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+.blocks {
+		padding-top: 175px;
+    padding-left: 550px;
+		transform: rotate(25deg);
 }
 
-/* Space out content a bit */
-body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+.blocks div {
+		padding-top: 5px;
+		padding-left: 5px;
+		border:1px solid black;
+  	height: 95px;
+  	width: 95px;
+		font-size: 110%;
+		background-color: rgba(200,200,0, 0.15);
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
+#one {
+		transform: translate(201px,101px);
 }
-
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
+#two {
+		transform: translate(100px,100px) rotate(-270deg);
 }
-
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+#three {
+		transform: translate(-1px,-103px) rotate(-180deg);
 }
-
-/* Custom page footer */
-.footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-    margin: 30px 0;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
-
-    /* Remove the padding we set earlier */
-    .header,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
+#four {
+		transform: translate(100px,-306px) rotate(-90deg);
 }
