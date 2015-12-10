@@ -1,14 +1,166 @@
 <!doctype html>
   <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Exarcice 3</title>
-        <link rel="stylesheet" href="styles/exercice3.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exarcice 3</title>
+    <link rel="stylesheet" href="styles/exercice3.css">
+    <!--- bootstrap --->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </head>
 
   <body>
     <div class="main">
-
+      <form>
+        <table class = "table table-hover" style="width:100%">
+          <thead>
+            <tr class="warning">
+              <h4 class="text-uppercase" style="text-align: center;">formulaire d'annonces immobili&egrave;res</h4>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="warning">
+              <td>
+                <h4>Titre de l'annonce :</h4>
+              </td>
+              <td>
+                <div class="input-group has-success has-feedback">
+                  <input type="text" class="form-control" placeholder="Titre de l'annonce" required>
+                  <div class="asterisk_input input-group-addon"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Prix du bien :</h4>
+              </td>
+              <td>
+                <div class="input-group">
+                  <div class="input-group-addon">&#8364;</div>
+                  <input class="form-control" type="text" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" placeholder="Prix du bien" required>
+                  <div class="asterisk_input input-group-addon"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Date de disponibilit&eacute; du bien :</h4>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input class="form-control" type="date" required>
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Surface du bien :</h4>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input class="form-control" type="text" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" placeholder="Surface du bien" required>
+                  <div class="asterisk_input input-group-addon"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Type du bien :</h4>
+              </td>
+              <td>
+                <input type="radio" name="choix1" checked>
+                <span>Appartement</span>
+                <input type="radio"name="choix1">
+                <span>Maison</span>
+                <input type="radio"name="choix1">
+                <span>Terrain</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Classe &eacute;nerg&eacute;tique :</h4>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img id="" src="ETIQUETTE_dpe.gif" width="250" height="250">
+              </td>
+              <td>
+                <select class="form-control" name"choix2">
+                  <option>A</option>
+                  <option>B</option>
+                  <option>C</option>
+                  <option>D</option>
+                  <option>E</option>
+                  <option>F</option>
+                  <option>G</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Equipements :</h4>
+              </td>
+              <td>
+                <input type="checkbox" name="choix3">
+                <span>Cave</span>
+                <input type="checkbox" name="choix3">
+                <span>Garage</span>
+                <input type="checkbox" name="choix3">
+                <span>Terrasse</span>
+                <input type="checkbox" name="choix3">
+                <span>Jacuzzi</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Texte de l'annonce :</h4>
+              </td>
+              <td>
+                <textarea class="form-control" cols="50" rows="10" name="body" id="body"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;">
+                <h4>Les photos :</h4>
+                <div style="position:relative;">
+                  <a class="btn btn-primary btn-lg">
+                    Choisissez photo
+                    <input type="file" accept="image/*" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' onchange="main()">
+                  </a>
+                </div>
+              </td>
+              <td>
+                <div class="form-control" id="affichage" style="width: 640px; min-height: 480px; margin: 20px auto; cursor: auto;" onclick="" aria-describedby="helpBlock">
+                </div>
+                <span id="helpBlock" class="help-block">Drag and drop your photoes here</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="submit" class="btn btn-success btn-lg" value="Envoyer">
+              </td>
+              <td>
+                <input type="reset" class="btn btn-danger btn-lg" value="Annuler">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
     </div>
+
+    <script>
+
+    </script>
   </body>
 </html>
