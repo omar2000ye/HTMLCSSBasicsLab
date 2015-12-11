@@ -14,24 +14,29 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
   </head>
 
   <body>
-    <div class="main">
+    <div class="container">
       <form>
-        <table class = "table table-hover" style="width:100%">
+
+        <!-- Table -->
+        <table class = "table table-hover">
           <thead>
-            <tr class="warning">
-              <h4 class="text-uppercase" style="text-align: center;">formulaire d'annonces immobili&egrave;res</h4>
+            <tr>
+              <div class="well well-lg">
+                <h2 class="text-uppercase text-primary text-center">formulaire d'annonces immobili&egrave;res</h2>
+              </div>
             </tr>
           </thead>
           <tbody>
-            <tr class="warning">
+            <tr>
               <td>
                 <h4>Titre de l'annonce :</h4>
               </td>
               <td>
-                <div class="input-group has-success has-feedback">
+                <div class="input-group">
                   <input type="text" class="form-control" placeholder="Titre de l'annonce" required>
                   <div class="asterisk_input input-group-addon"></div>
                 </div>
@@ -54,12 +59,14 @@
                 <h4>Date de disponibilit&eacute; du bien :</h4>
               </td>
               <td>
-                <div class="input-group">
-                  <input class="form-control" type="date" required>
-                  <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
+                <div class="form-group">
+                    <div class="input-group date" id="datepicker">
+                        <input class="form-control" type="text" required>
+                          <span class="add-on input-group-addon">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                          </span>
+                    </div>
                   </div>
-                </div>
               </td>
             </tr>
             <tr>
@@ -78,25 +85,45 @@
                 <h4>Type du bien :</h4>
               </td>
               <td>
-                <input type="radio" name="choix1" checked>
-                <span>Appartement</span>
-                <input type="radio"name="choix1">
-                <span>Maison</span>
-                <input type="radio"name="choix1">
-                <span>Terrain</span>
+                <div class="row" style="text-align: center;">
+                  <div class="col-xs-4">
+                    <label class="panel panel-default">
+                      <div class="panel-heading">
+                        <i class="glyphicon glyphicon-list"></i>
+                        <span>Appartement</span>
+                        <input type="radio" name="choix1" value="terrain">
+                      </div>
+                    </label>
+                  </div>
+                  <div class="col-xs-4">
+                    <label class="panel panel-default">
+                      <div class="panel-heading">
+                        <i class="glyphicon glyphicon-home"></i>
+                        <span>Maison</span>
+                        <input type="radio" name="choix1" value="terrain" class="selected">
+                      </div>
+                    </label>
+                  </div>
+                  <div class="col-xs-4">
+                    <label class="panel panel-default">
+                      <div class="panel-heading">
+                        <i class="glyphicon glyphicon-picture"></i>
+                        <span>Terrain</span>
+                        <input type="radio" name="choix1" value="terrain" class="selected">
+                      </div>
+                    </label>
+                  </div>
+                </div>
               </td>
             </tr>
             <tr>
               <td>
                 <h4>Classe &eacute;nerg&eacute;tique :</h4>
-              </td>
-            </tr>
-            <tr>
-              <td>
                 <img id="" src="ETIQUETTE_dpe.gif" width="250" height="250">
               </td>
               <td>
-                <select class="form-control" name"choix2">
+                <select class="form-control text-center" name"classe">
+                  <option>------------------------------------------------------------------------------Choisissez------------------------------------------------------------------------------</option>
                   <option>A</option>
                   <option>B</option>
                   <option>C</option>
@@ -112,14 +139,16 @@
                 <h4>Equipements :</h4>
               </td>
               <td>
-                <input type="checkbox" name="choix3">
+                <input type="checkbox" name="cave">
                 <span>Cave</span>
-                <input type="checkbox" name="choix3">
+                <input type="checkbox" name="garage">
                 <span>Garage</span>
-                <input type="checkbox" name="choix3">
+                <input type="checkbox" name="terrasse">
                 <span>Terrasse</span>
-                <input type="checkbox" name="choix3">
+                <input type="checkbox" name="jacuzzi">
                 <span>Jacuzzi</span>
+                <input type="checkbox" name="piscine">
+                <span>Piscine</span>
               </td>
             </tr>
             <tr>
@@ -127,7 +156,7 @@
                 <h4>Texte de l'annonce :</h4>
               </td>
               <td>
-                <textarea class="form-control" cols="50" rows="10" name="body" id="body"></textarea>
+                <textarea class="form-control" rows="10" name="body" id="body"></textarea>
               </td>
             </tr>
             <tr>
@@ -136,31 +165,39 @@
                 <div style="position:relative;">
                   <a class="btn btn-primary btn-lg">
                     Choisissez photo
-                    <input type="file" accept="image/*" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' onchange="main()">
+                    <input class="img-responsive" type="file" accept="image/*" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' onchange="main()">
                   </a>
                 </div>
               </td>
               <td>
-                <div class="form-control" id="affichage" style="width: 640px; min-height: 480px; margin: 20px auto; cursor: auto;" onclick="" aria-describedby="helpBlock">
+                <div class="form-control" id="affichage" style="min-height: 480px; margin: 20px auto; cursor: auto;">
                 </div>
-                <span id="helpBlock" class="help-block">Drag and drop your photoes here</span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="submit" class="btn btn-success btn-lg" value="Envoyer">
-              </td>
-              <td>
-                <input type="reset" class="btn btn-danger btn-lg" value="Annuler">
+                <span id="helpBlock" class="help-block"> Glissez et déposez vos photos ici</span>
               </td>
             </tr>
           </tbody>
         </table>
+
+        <!-- Form buttons -->
+        <div class="form-group" style="text-align: center;">
+          <div class="pager col-sm-6">
+              <input type="submit" class="btn btn-success btn-lg" value="Envoyer">
+          </div>
+          <div class="pager col-sm-6" style="text-align: center;">
+              <input type="reset" class="btn btn-danger btn-lg" value="Annuler">
+          </div>
+        </div>
+
       </form>
     </div>
 
     <script>
-
+      /* date function */
+      $(function(){
+        $('#datepicker').datepicker({
+          format: 'dd-mm-yyyy'
+        });
+      });
     </script>
   </body>
 </html>
