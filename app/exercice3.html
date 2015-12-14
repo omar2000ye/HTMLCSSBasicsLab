@@ -3,11 +3,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Exarcice 3</title>
+
+    <!--- Exercice 3 css --->
     <link rel="stylesheet" href="styles/exercice3.css">
+
     <!--- bootstrap --->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <script src="bower_components/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+
     <!--- bootstrap date picker --->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
   </head>
@@ -21,7 +23,7 @@
           <thead>
             <tr>
               <div class="well well-lg">
-                <h2 class="text-uppercase text-primary text-center">formulaire d'annonces immobili&egrave;res</h2>
+                <h2 class="text-primary text-center" style="text-transform: uppercase;">formulaire d'annonces immobili&egrave;res</h2>
               </div>
             </tr>
           </thead>
@@ -117,7 +119,7 @@
                 <img id="" src="ETIQUETTE_dpe.gif" width="250" height="250">
               </td>
               <td>
-                <select class="form-control text-center" name"classe">
+                <select class="form-control" name"classe">
                   <option>-------------------------------Choisissez-------------------------------</option>
                   <option>A</option>
                   <option>B</option>
@@ -193,6 +195,22 @@
           format: 'dd-mm-yyyy'
         });
       });
+
+      function showThumbnail(files)
+      {
+        for(var i=0;i<files.length;i++)
+        {
+            var reader  = new FileReader();
+            reader.readAsDataURL(files[i]);
+            reader.onloadend = function () {
+              $("#myForm_photosArea").append('<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center"><img src="' + reader.result + '" class="mini"><div class="img-overlay"><h3>X</h3></div></div></div>');
+          }
+        }
+
+        //Prevent speedy gonzales
+        setTimeout(function() { $(".img-overlay").click(function() { $(this).parent().remove(); }); }, 250);
+      }
+
     </script>
   </body>
 </html>
