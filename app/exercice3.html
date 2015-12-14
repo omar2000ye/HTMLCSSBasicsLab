@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Exarcice 3</title>
+    <title>Exercice 3</title>
 
     <!--- Exercice 3 css --->
     <link rel="stylesheet" href="styles/exercice3.css">
@@ -12,6 +12,8 @@
 
     <!--- bootstrap date picker --->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+    <script src="scripts/jquery.html5uploader-1.1.js"></script>
   </head>
 
   <body>
@@ -162,7 +164,7 @@
                 <div style="position:relative;">
                   <a class="btn btn-primary btn-lg">
                     Choisissez photo
-                    <input class="img-responsive" type="file" accept="image/*" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' onchange="main()">
+                    <input class="img-responsive" type="file" accept="image/*" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'>
                   </a>
                 </div>
               </td>
@@ -195,22 +197,6 @@
           format: 'dd-mm-yyyy'
         });
       });
-
-      function showThumbnail(files)
-      {
-        for(var i=0;i<files.length;i++)
-        {
-            var reader  = new FileReader();
-            reader.readAsDataURL(files[i]);
-            reader.onloadend = function () {
-              $("#myForm_photosArea").append('<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center"><img src="' + reader.result + '" class="mini"><div class="img-overlay"><h3>X</h3></div></div></div>');
-          }
-        }
-
-        //Prevent speedy gonzales
-        setTimeout(function() { $(".img-overlay").click(function() { $(this).parent().remove(); }); }, 250);
-      }
-
     </script>
   </body>
 </html>
